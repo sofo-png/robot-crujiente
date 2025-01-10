@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicación de Videos</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px auto;
+            background: linear-gradient(45deg, red, blue, green);
+            border-radius: 50%;
+            animation: spin 3s linear infinite;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .welcome {
+            font-size: 2rem;
+            animation: rgb-animation 3s infinite;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, red, green, blue);
+            background-size: 300%;
+        }
+
+        @keyframes rgb-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .video-banner {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px dashed #fff;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"></div>
+        <div class="welcome">BIENVENIDOS</div>
+    </div>
+    <div class="content">
+        <h2>Disfruta de los Mejores Videos</h2>
+        <div class="video-banner">¡VIDEO GRATIS!</div>
+    </div>
+</body>
+</html>
