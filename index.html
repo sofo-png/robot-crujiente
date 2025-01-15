@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -88,6 +88,31 @@
                 opacity: 1;
             }
         }
+
+        /* Estilos para el letrero animado y el cronómetro */
+        #ledText {
+            font-size: 40px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            animation: ledAnimation 1s linear infinite;
+        }
+
+        @keyframes ledAnimation {
+            0% { color: #ff0000; }
+            25% { color: #00ff00; }
+            50% { color: #0000ff; }
+            75% { color: #ff00ff; }
+            100% { color: #ff0000; }
+        }
+
+        #countdown {
+            font-size: 48px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 10px;
+            margin-top: 20px;
+            animation: ledAnimation 1s linear infinite;
+        }
     </style>
 </head>
 <body>
@@ -100,59 +125,91 @@
         <h2>Disfruta de los Mejores Videos</h2>
         <div class="video-banner">¡VIDEO GRATIS!</div>
     </div>
+
     <font color="yellow" size="10"><p>
-  Bivenidos a un Mundo de Inspiración y Revelaciones 
-🚀 ¡Descubre los Mejores Videos que Transformarán
-Sumérgete en una experiencia única llena de mensajes impactantes, visuales sorprendentes y contenido que alimentará tu espíritu y tu mente.
+        Bivenidos a un Mundo de Inspiración y Revelaciones 
+        🚀 ¡Descubre los Mejores Videos que Transformarán
+        Sumérgete en una experiencia única llena de mensajes impactantes, visuales sorprendentes y contenido que alimentará tu espíritu y tu mente.
 
-🔔 ¡No te lo pierdas
+        🔔 ¡No te lo pierdas
 
-🎥 Haz clic ahora y disfruta de contenido completamente gratis.
-Tu próximo
+        🎥 Haz clic ahora y disfruta de contenido completamente gratis.
+        Tu próximo
 
-💡 Comparte y sé parte de esta comunidad de aprendizaje y reflexión.
-</p><font/>
+        💡 Comparte y sé parte de esta comunidad de aprendizaje y reflexión.
+    </p></font>
     
-
     <hr size="50" color="pink" border="7px">
     <center>
-    <img src="sola.gif"  width="160px"  height="150px">  
-     <img src="sola.gif"  width="160px"  height="150px">  
-     <img src="sola.gif"  width="160px"  height="150px">  
-     <img src="sola.gif"  width="160px"  height="150px">  
-     <img src="sola.gif"  width="160px"  height="150px"> 
-     <img src="sola.gif"  width="160px"  height="150px">
-     <img src="sola.gif"  width="160px"  height="150px">
-
-    <center/>
-        <video controls width="400" height="360">
-  <source src="VIDEO.mp4" type="video/mp4">
-   </video>
-     <video controls width="400" height="360">
-  <source src="solo.mp4" type="video/mp4">
-   </video>
-     <video controls width="400" height="360">
-  <source src="ya.mp4" type="video/mp4">
-   </video>
+        <img src="sola.gif"  width="160px"  height="150px">  
+        <img src="sola.gif"  width="160px"  height="150px">  
+        <img src="sola.gif"  width="160px"  height="150px">  
+        <img src="sola.gif"  width="160px"  height="150px">  
+        <img src="sola.gif"  width="160px"  height="150px"> 
+        <img src="sola.gif"  width="160px"  height="150px">
+        <img src="sola.gif"  width="160px"  height="150px">
+    </center>
     <video controls width="400" height="360">
-    <source src="Video1.mp4" type="video/mp4">
-     </video>
-     <video controls width="400" height="360">
-    <source src="Video2.mp4" type="video/mp4">
-     </video>
-     <video controls width="400" height="360">
-    <source src="Video3.mp4" type="video/mp4">
-     </video>
-     <video controls width="400" height="360">
-    <source src="Video4.mp4" type="video/mp4">
-     </video>
-     <video controls width="400" height="360">
-    <source src="Video5.mp4" type="video/mp4">
-     </video>
-  
-     
+        <source src="VIDEO.mp4" type="video/mp4">
+    </video>
+    <video controls width="400" height="360">
+        <source src="solo.mp4" type="video/mp4">
+    </video>
+    <video controls width="400" height="360">
+        <source src="ya.mp4" type="video/mp4">
+    </video>
+    <video controls width="400" height="360">
+        <source src="Video1.mp4" type="video/mp4">
+    </video>
+    <video controls width="400" height="360">
+        <source src="Video2.mp4" type="video/mp4">
+    </video>
+    <video controls width="400" height="360">
+        <source src="Video3.mp4" type="video/mp4">
+    </video>
+    <video controls width="400" height="360">
+        <source src="Video4.mp4" type="video/mp4">
+    </video>
+    <video controls width="400" height="360">
+        <source src="Video5.mp4" type="video/mp4">
+    </video>
+
     <hr size="50" color="lime" border="7px">
-   <img src="fi.gif"  width="700px"  height="500px">  
-<center/>
+    <img src="fi.gif" width="700px" height="500px">
+    
+    <!-- Letrero animado y cronómetro después del gif -->
+    <div id="ledText">Próximos Videos</div>
+    <div id="countdown"></div>
+
+    <script>
+        const countdownElement = document.getElementById('countdown');
+
+        // Define the target time (24 hours from now)
+        let targetTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+
+        function updateCountdown() {
+            let now = new Date().getTime();
+            let timeLeft = targetTime - now;
+
+            if (timeLeft <= 0) {
+                countdownElement.innerHTML = "Tiempo Expirado";
+                return;
+            }
+
+            let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        }
+
+        function pad(number) {
+            return number < 10 ? '0' + number : number;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call to display countdown immediately
+    </script>
+
 </body>
 </html>
