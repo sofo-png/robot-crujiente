@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -122,10 +122,35 @@
             margin-top: 20px;
             animation: ledAnimation 1s linear infinite;
         }
+
+        /* Botón flotante de WhatsApp */
+        .whatsapp-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, red, green, blue, yellow, purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            animation: rgb-animation 3s infinite;
+        }
+
+        .whatsapp-button img {
+            width: 40px;
+            height: 40px;
+        }
     </style>
 </head>
 <body>
-     
+    <div class="whatsapp-button" onclick="window.open('https://wa.me/1234567890', '_blank')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </div>
+
     <div class="header">
         <div class="logo"></div>
         <div class="welcome">BIENVENIDOS</div>
