@@ -1,129 +1,46 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HKPF7Y2SD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8HKPF7Y2SD');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Videos Cristianos</title>
-    <center>
     <style>
         body {
             margin: 0;
             background: #000;
             font-family: Arial, sans-serif;
             color: #fff;
-        }
-
-        .header {
             text-align: center;
-            padding: 20px;
+        }
+
+        .animated-hr {
+            border: none;
+            height: 20px;
+            width: 80%;
+            border-radius: 10px;
             position: relative;
-        }
-
-        .logo {
-            width: 250px;
-            height: 250px;
-            margin: 0 auto 10px auto;
-            background: linear-gradient(45deg, red, blue, green);
-            border-radius: 50%;
-            animation: spin 3s linear infinite;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .welcome {
-            font-size: 2rem;
+            background: linear-gradient(90deg, red, green, blue, yellow, purple);
+            background-size: 400%;
             animation: rgb-animation 3s infinite;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            background-image: linear-gradient(90deg, red, green, blue, yellow, purple);
-            background-size: 500%;
+        }
+        
+        .animated-hr::before {
+            content: "Videos Musicales";
+            font-size: 9px;
+            color: white;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         @keyframes rgb-animation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .content {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .video-banner {
-            font-size: 1.5rem;
-            margin: 20px 0;
-            padding: 10px;
-            border: 2px dashed #fff;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* Estilos para el letrero animado y el cronómetro */
-        #ledText {
-            font-size: 40px;
-            font-weight: bold;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            animation: ledAnimation 1s linear infinite;
-        }
-
-        @keyframes ledAnimation {
-            0% { color: #ff0000; }
-            25% { color: #00ff00; }
-            50% { color: #0000ff; }
-            75% { color: #ff00ff; }
-            100% { color: #ff0000; }
-        }
-
-        #countdown {
-            font-size: 48px;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 10px;
-            margin-top: 20px;
-            animation: ledAnimation 1s linear infinite;
-        }
-
-        /* Botón flotante de WhatsApp */
         .whatsapp-button {
             position: fixed;
             top: 20px;
@@ -137,7 +54,6 @@
             justify-content: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            animation: rgb-animation 3s infinite;
         }
 
         .whatsapp-button img {
@@ -147,123 +63,18 @@
     </style>
 </head>
 <body>
-    <div class="whatsapp-button" onclick="window.open('https://wa.me/1234567890', '_blank')">
+    <div class="whatsapp-button" onclick="sendWhatsAppMessage()">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </div>
 
-    <div class="header">
-        <div class="logo"></div>
-        <div class="welcome">BIENVENIDOS</div>
-    </div>
-    <div class="content">
-        <h2>Disfruta de los Mejores Videos</h2>
-        <div class="video-banner">¡VIDEO GRATIS!</div>
-    </div>
-
-    <font color="blue" size="3"><p>
-        Bienvenidos a un Mundo de Inspiración y Revelaciones 
-        🚀 ¡Descubre los Mejores Videos que Transformarán
-        Sumérgete en una experiencia única llena de mensajes impactantes, visuales sorprendentes y contenido que alimentará tu espíritu y tu mente.
-
-        🔔 ¡No te lo pierdas
-
-        🎥 Haz clic ahora y disfruta de contenido completamente gratis.
-        
-
-        💡 Comparte y sé parte de esta comunidad de aprendizaje y reflexión.
-    </p></font>
+    <hr class="animated-hr">
     
-    <hr size="50" color="pink" border="7px">
-    <center>
-        <img src="sola.gif"  width="160px"  height="150px">  
-        <img src="sola.gif"  width="160px"  height="150px">  
-        <img src="sola.gif"  width="160px"  height="150px">  
-        <img src="sola.gif"  width="160px"  height="150px">  
-        <img src="sola.gif"  width="160px"  height="150px"> 
-        <img src="sola.gif"  width="160px"  height="150px">
-         
-    </center>
-    <video controls width="400" height="360">
-        <source src="VIDEO.mp4" type="video/mp4">
-    </video>
-    <video controls width="400" height="360">
-        <source src="solo.mp4" type="video/mp4">
-    </video>
-    <video controls width="400" height="360">
-        <source src="ya.mp4" type="video/mp4">
-    </video>
-    <video controls width="400" height="360">
-        <source src="Video1.mp4" type="video/mp4">
-    </video>
-    <video controls width="400" height="360">
-        <source src="Video2.mp4" type="video/mp4">
-    </video>
-    <video controls width="400" height="360">
-        <source src="Video3.mp4" type="video/mp4">
-    </video>
-    <video controls width="400" height="360">
-        <source src="Video4.mp4" type="video/mp4">
-    </video>
-    <video controls width="400" height="360">
-        <source src="Video5.mp4" type="video/mp4">
-    </video>
-
-    <hr size="50" color="lime" border="7px">
-    <img src="yu.gif" width="200px" height="200px">
-    
-    <!-- Letrero animado y cronómetro después del gif -->
-    <div id="ledText">Próximos Videos</div>
-    <div id="countdown"></div>
-
     <script>
-        const countdownElement = document.getElementById('countdown');
-
-        // Define the target time (24 hours from now)
-        let targetTime = new Date().getTime() + 24 * 60 * 60 * 1000;
-
-        function updateCountdown() {
-            let now = new Date().getTime();
-            let timeLeft = targetTime - now;
-
-            if (timeLeft <= 0) {
-                countdownElement.innerHTML = "Tiempo Expirado";
-                return;
-            }
-
-            let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            countdownElement.innerHTML = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        function sendWhatsAppMessage() {
+            const phoneNumber = "46573297"; // Reemplázalo con tu número de WhatsApp
+            const message = encodeURIComponent("Hola, me gustaria saver cuando publicaras mas videos.");
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
         }
-
-        function pad(number) {
-            return number < 10 ? '0' + number : number;
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call to display countdown immediately
     </script>
-   <video controls width="400" height="360">
-        <source src="VIDEO9.mp4" type="video/mp4">
-    </video>
-  <video controls width="400" height="360">
-        <source src="PIANO.mp4" type="video/mp4">
-    </video>
- <hr size="50" color="purple" border="7px">
-  </video>
-  <video controls width="400" height="360">
-        <source src="Daniel en el pozo de los leones.mp4" type="video/mp4">
-    </video>
-  </video>
-  <video controls width="400" height="360">
-        <source src="PARTE2.mp4" type="video/mp4">
-    </video>
-  </video>
-  <video controls width="400" height="360">
-        <source src=".mp4" type="video/mp4">
-    </video>
-   
-
 </body>
 </html>
