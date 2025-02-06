@@ -1,151 +1,216 @@
-  <!DOCTYPE html>
-<html lang="es">
+ <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIDEOS GRATIS</title>
+    <title>Publicación de Videos</title>
+    <center>
     <style>
         body {
-            background-color: black;
-            color: white;
-            text-align: center;
+            margin: 0;
+            background: #000;
             font-family: Arial, sans-serif;
+            color: #fff;
         }
-        .rgb-text {
-            font-size: 24px;
-            font-weight: bold;
-            animation: rgbAnimation 2s infinite alternate;
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 10px auto;
+            background: linear-gradient(45deg, red, blue, green);
+            border-radius: 50%;
+            animation: spin 3s linear infinite;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        hr {
+        width: 80%;
+        height: 5px;
+        border: none;
+        background: linear-gradient(90deg, red, yellow, green, cyan, blue, magenta, red);
+        background-size: 400% 400%;
+        animation: rgbAnimation 5s infinite linear;
+    }
+    @keyframes rgbAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+
+        .welcome {
+            font-size: 2rem;
+            animation: rgb-animation 3s infinite;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, red, green, blue);
+            background-size: 400%;
+        }
+
+        @keyframes rgb-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .video-banner {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px dashed #fff;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        hr {
+            width: 80%;
+            height: 5px;
+            border: none;
+            background: linear-gradient(90deg, red, yellow, green, cyan, blue, magenta, red);
+            background-size: 400% 400%;
+            animation: rgbAnimation 5s infinite linear;
         }
         @keyframes rgbAnimation {
-            0% { color: red; }
-            50% { color: green; }
-            100% { color: blue; }
-        }
-        .rgb-hr {
-            position: relative;
-            height: 20px;
-            border: none;
-            background: linear-gradient(90deg, red, green, blue);
-            animation: rgbAnimation 2s infinite alternate;
-        }
-        .rgb-hr::before {
-            content: "COLECCION UNO";
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: black;
-            font-weight: bold;
-            background: white;
-            padding: 0 5px;
-        }
-        .countdown-container {
-            margin-top: 20px;
-        }
-        .progress-bar {
-            width: 100%;
-            height: 30px;
-            background-color: #333;
-            position: relative;
-            border-radius: 9px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            width: 0;
-            background: green;
-        }
-        .loading-text {
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            top: 5px;
-            color: white;
-            font-weight: bold;
-        }
-        .whatsapp-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: #25D366;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="https://wa.me/502XXXXXXXX?text=Hola%20quiero%20más%20información" class="whatsapp-button">WhatsApp</a>
-    <h1 class="rgb-text">Disfruta de videos cristianos inspiradores</h1>
-    <hr class="rgb-hr">
-    <h2 class="rgb-text">Gracias por visitar este sitio</h2>
-    <hr class="rgb-hr">
-    <div>
-        <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-      <video width="300" heidg controls>
-            <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
+    
+    <div class="header">
+        <div class="logo"></div>
+        <div class="welcome">BIENVENIDOS</div>
     </div>
-    <div class="countdown-container">
-        <p class="loading-text">Cargando videos...</p>
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress"></div>
-        </div>
+    <hr borde="7" size="25px" color="lime">
+   
+    <div class="content">
+        <h2>Disfruta de los Mejores Videos</h2>
+        <div class="video-banner">¡VIDEO GRATIS!</div>
     </div>
-    <script>
-        let totalTime = 86400; // 24 horas en segundos
-        let elapsedTime = 0;
-        function updateProgress() {
-            elapsedTime++;
-            let percentage = (elapsedTime / totalTime) * 100;
-            document.getElementById('progress').style.width = percentage + '%';
-            if (elapsedTime < totalTime) {
-                setTimeout(updateProgress, 1000);
-            }
-        }
-        updateProgress();
-    </script>
+    <font color="-webkit-background-clip" size="6"><p>
+  Bnvenidos a un Mundo de Inspiración y Revelaciones 
+🚀 ¡Descubre los Mejores Videos que Transformarán
+Sumérgete en una experiencia única llena de mensajes impactantes, visuales sorprendentes y contenido que alimentará tu espíritu y tu mente.
+
+🔔 ¡No te lo pierdas
+
+🎥 Haz clic ahora y disfruta de contenido completamente gratis.
+
+
+💡 Comparte y sé parte de esta comunidad de aprendizaje y reflexión.
+</p><font/>
+<hr size="50" color="pink" border="7px">
+
+    
+        <video controls width="400" height="360">
+  <source src="VIDEO.mp4" type="video/mp4">
+   </video>
+     <video controls width="400" height="360">
+  <source src="solo.mp4" type="video/mp4">
+   </video>
+     <video controls width="400" height="360">
+  <source src="ya.mp4" type="video/mp4">
+   </video>
+   
+   <video controls width="400" height="360">
+    <source src="VIDEO.mp4" type="video/mp4">
+     </video>
+     
+     <video controls width="400" height="360">
+        <source src="VIDEO.mp4" type="video/mp4">
+         </video>
+         
+        <video controls width="400" height="360">
+            <source src="VIDEO.mp4" type="video/mp4">
+             </video>
+             <video controls width="400" height="360">
+                <source src="VIDEO.mp4" type="video/mp4">
+                 </video>
+                 <video controls width="400" height="360">
+                    <source src="VIDEO.mp4" type="video/mp4">
+                     </video>
+                     <video controls width="400" height="360">
+                        <source src="VIDEO.mp4" type="video/mp4">
+                         </video>
+                         <video controls width="400" height="360">
+                            <source src="VIDEO.mp4" type="video/mp4">
+                             </video>
+                             <video controls width="400" height="360">
+                                <source src="VIDEO.mp4" type="video/mp4">
+                                 </video>
+                                 <video controls width="400" height="360">
+                                    <source src="VIDEO.mp4" type="video/mp4">
+                                     </video>
+<center/>
+<hr borde="7" size="10" color="lime">
+<p>CARGANDO VIDEOS</p>
+<div class="progress-container">
+    <div class="progress-bar" id="progress-bar">0%</div>
+</div>
+<script>
+    const progressBar = document.getElementById("progress-bar");
+    let width = 0;
+    function updateProgress() {
+        if (width >= 100) return;
+        width++;
+        progressBar.style.width = width + "%";
+        progressBar.textContent = width + "%";
+        if (width <= 25) progressBar.style.backgroundColor = "orange";
+        else if (width <= 50) progressBar.style.backgroundColor = "yellow";
+        else if (width <= 75) progressBar.style.backgroundColor = "purple";
+        else progressBar.style.backgroundColor = "lime";
+        setTimeout(updateProgress, 36000); // 60 minutos (3600000 ms en total dividido entre 100 incrementos)
+    }
+    updateProgress();
+</script>
 </body>
 </html>
