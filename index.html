@@ -1,9 +1,12 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicación de Videos</title>
+    <a href="https://wa.me/50246573297?text=Hola,%20me%20gustaría%20más%20información" class="whatsapp-button" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
     <center>
     <style>
         body {
@@ -108,8 +111,8 @@
 
         hr {
             width: 80%;
-            height: 5px;
-            border: none;
+            height: 50px;
+            border-radius: 26px;
             background: linear-gradient(90deg, red, yellow, green, cyan, blue, magenta, red);
             background-size: 400% 400%;
             animation: rgbAnimation 5s infinite linear;
@@ -121,6 +124,25 @@
             100% {
                 background-position: 100% 50%;
             }
+        }
+    
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+        .whatsapp-button img {
+            width: 35px;
+            height: 35px;
         }
     </style>
 </head>
@@ -190,7 +212,7 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
                                  <video controls width="400" height="360">
                                     <source src="VIDEO.mp4" type="video/mp4">
                                      </video>
-<center/>
+
 <hr borde="7" size="10" color="lime">
 <p>CARGANDO VIDEOS</p>
 <div class="progress-container">
@@ -211,6 +233,7 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
         setTimeout(updateProgress, 36000); // 60 minutos (3600000 ms en total dividido entre 100 incrementos)
     }
     updateProgress();
+    <center/> 
 </script>
 </body>
 </html>
