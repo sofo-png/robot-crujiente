@@ -144,11 +144,7 @@
             width: 35px;
             height: 35px;
         }
-         .progress-container {
-      width: 80%;
-      margin: 20px auto;
-    }
- .progress-bar-wrapper {
+        .progress-bar-wrapper {
       width: 80%;
       margin: 50px auto;
       background-color: #f3f3f3;
@@ -172,6 +168,33 @@
       background-color: orange;
       transition: background-color 0.5s, width 0.5s; /* Smooth transitions */
     }
+
+    /* RGB animation for the empty part */
+    .progress-bar-wrapper::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgb(255, 0, 0);
+      animation: rgb-blink 1s infinite;
+      z-index: 1;
+    }
+
+    /* Ensure the filled part is above the blinking effect */
+    .progress-bar {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Keyframes for RGB blinking effect */
+    @keyframes rgb-blink {
+      0% { background: rgb(255, 0, 0); }
+      33% { background: rgb(0, 255, 0); }
+      66% { background: rgb(0, 0, 255); }
+      100% { background: rgb(255, 0, 0); }
+    } 
    
     </style>
 </head>
@@ -253,7 +276,11 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
     let width = 0;
 
     function updateProgress() {
-      if (width >= 100) return; // Stop when progress reaches 100%
+      if (width >= 100) {
+        // Stop blinking when progress is complete
+        document.querySelector('.progress-bar-wrapper').style.animation = "none";
+        return;
+      }
       width++;
       progressBar.style.width = width + "%";
       progressBar.textContent = width + "%";
