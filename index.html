@@ -144,10 +144,26 @@
             width: 35px;
             height: 35px;
         }
-        .progress-bar-wrapper {
+      /* Container for the progress bar and timer */
+    .container {
+      text-align: center;
+      margin-top: 50px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Countdown timer style */
+    .timer {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* Progress bar wrapper */
+    .progress-bar-wrapper {
       width: 80%;
-      margin: 50px auto;
-      background-color: #f3f3f3;
+      margin: 0 auto;
+      background-color: transparent;
       border-radius: 20px;
       overflow: hidden;
       height: 30px;
@@ -156,45 +172,40 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Progress bar itself */
+    /* Progress bar */
     .progress-bar {
       height: 100%;
       width: 0;
       color: white;
       font-weight: bold;
       font-size: 14px;
-      line-height: 30px; /* Vertically center text */
+      line-height: 30px;
       text-align: center;
       background-color: orange;
-      transition: background-color 0.5s, width 0.5s; /* Smooth transitions */
+      transition: width 0.5s, background-color 0.5s;
+      position: relative;
+      z-index: 2;
     }
 
-    /* RGB animation for the empty part */
-    .progress-bar-wrapper::after {
+    /* RGB blinking for the empty part */
+    .progress-bar-wrapper::before {
       content: "";
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgb(255, 0, 0);
-      animation: rgb-blink 1s infinite;
       z-index: 1;
+      animation: rgb-blink 1s infinite;
     }
 
-    /* Ensure the filled part is above the blinking effect */
-    .progress-bar {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Keyframes for RGB blinking effect */
+    /* Keyframes for RGB blinking */
     @keyframes rgb-blink {
       0% { background: rgb(255, 0, 0); }
       33% { background: rgb(0, 255, 0); }
       66% { background: rgb(0, 0, 255); }
       100% { background: rgb(255, 0, 0); }
-    } 
+    }
    
     </style>
 </head>
@@ -267,41 +278,72 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
 
 <hr borde="7" size="10" color="lime">
 <p>CARGANDO VIDEOS</p>
-   <div class="progress-bar-wrapper">
+   
+<div class="container">
+  <div class="timer" id="timer">01:00:00</div>
+  <div class="progress-bar-wrapper">
     <div class="progress-bar" id="progress-bar">0%</div>
   </div>
+</div>
 
-  <script>
-    const progressBar = document.getElementById("progress-bar");
-    let width = 0;
+<script>
+  const progressBar = document.getElementById("progress-bar");
+  const timerElement = document.getElementById("timer");
 
-    function updateProgress() {
-      if (width >= 100) {
-        // Stop blinking when progress is complete
-        document.querySelector('.progress-bar-wrapper').style.animation = "none";
-        return;
-      }
-      width++;
-      progressBar.style.width = width + "%";
-      progressBar.textContent = width + "%";
+  let width = 0; // Progress percentage
+  let remainingTime = 3600; // Total time in seconds (1 hour)
 
-      // Change color based on progress
-      if (width <= 25) {
-        progressBar.style.backgroundColor = "orange"; // 0-25%
-      } else if (width <= 50) {
-        progressBar.style.backgroundColor = "yellow"; // 26-50%
-      } else if (width <= 75) {
-        progressBar.style.backgroundColor = "purple"; // 51-75%
-      } else {
-        progressBar.style.backgroundColor = "lime"; // 76-100%
-      }
-
-      // Schedule the next update (36000 ms = 36 seconds per increment for a 60-minute total duration)
-      setTimeout(updateProgress, 36000);
+  function updateProgress() {
+    if (width >= 100) {
+      // Stop updating once progress reaches 100%
+      return;
     }
 
-    updateProgress();
-  </script>
+    // Update progress bar width
+    width++;
+    progressBar.style.width = width + "%";
+    progressBar.textContent = width + "%";
+
+    // Change color based on progress percentage
+    if (width <= 25) {
+      progressBar.style.backgroundColor = "orange";
+    } else if (width <= 50) {
+      progressBar.style.backgroundColor = "yellow";
+    } else if (width <= 75) {
+      progressBar.style.backgroundColor = "purple";
+    } else {
+      progressBar.style.backgroundColor = "lime";
+    }
+
+    // Schedule next update (36 seconds per increment)
+    setTimeout(updateProgress, 36000);
+  }
+
+  function updateTimer() {
+    if (remainingTime <= 0) {
+      timerElement.textContent = "00:00:00"; // Show "time's up" message
+      return;
+    }
+
+    // Calculate hours, minutes, and seconds
+    const hours = Math.floor(remainingTime / 3600).toString().padStart(2, "0");
+    const minutes = Math.floor((remainingTime % 3600) / 60).toString().padStart(2, "0");
+    const seconds = (remainingTime % 60).toString().padStart(2, "0");
+
+    // Update the timer display
+    timerElement.textContent = `${hours}:${minutes}:${seconds}`;
+
+    // Decrease remaining time by 1 second
+    remainingTime--;
+
+    // Schedule the next update
+    setTimeout(updateTimer, 1000);
+  }
+
+  // Start both the progress bar and the timer
+  updateProgress();
+  updateTimer();
+</script>
  
 </body>
 </html>
