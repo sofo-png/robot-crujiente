@@ -148,16 +148,16 @@
       width: 80%;
       margin: 20px auto;
     }
-
-    /* Outer container for the progress bar */
-    .progress-bar-wrapper {
+ .progress-bar-wrapper {
+      width: 80%;
+      margin: 50px auto;
       background-color: #f3f3f3;
       border-radius: 20px;
       overflow: hidden;
       height: 30px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border: 2px solid #ddd;
       position: relative;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     /* Progress bar itself */
@@ -169,31 +169,10 @@
       font-size: 14px;
       line-height: 30px; /* Vertically center text */
       text-align: center;
-      border-radius: 20px;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.3) 0,
-        rgba(255, 255, 255, 0.3) 10px,
-        transparent 10px,
-        transparent 20px
-      );
+      background-color: orange;
+      transition: background-color 0.5s, width 0.5s; /* Smooth transitions */
     }
-
-    /* Individual color styles for the bars */
-    .progress-bar.red {
-      background-color: #ff4d4d;
-      border: 2px solid #ff0000;
-    }
-
-    .progress-bar.yellow {
-      background-color: #ffc107;
-      border: 2px solid #ff9800;
-    }
-
-    .progress-bar.blue {
-      background-color: #4da6ff;
-      border: 2px solid #007bff;
-    }
+   
     </style>
 </head>
 <body>
@@ -265,44 +244,37 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
 
 <hr borde="7" size="10" color="lime">
 <p>CARGANDO VIDEOS</p>
-  <div class="progress-container">
-    <div class="progress-bar-wrapper">
-      <div class="progress-bar red" id="progress-bar-1">0%</div>
-    </div>
+   <div class="progress-bar-wrapper">
+    <div class="progress-bar" id="progress-bar">0%</div>
   </div>
 
-  <div class="progress-container">
-    <div class="progress-bar-wrapper">
-      <div class="progress-bar yellow" id="progress-bar-2">0%</div>
-    </div>
-  </div>
-
-  <div class="progress-container">
-    <div class="progress-bar-wrapper">
-      <div class="progress-bar blue" id="progress-bar-3">0%</div>
-    </div>
-  </div>
   <script>
-    const progressBars = [
-      { element: document.getElementById("progress-bar-1"), target: 30 },
-      { element: document.getElementById("progress-bar-2"), target: 60 },
-      { element: document.getElementById("progress-bar-3"), target: 100 },
-    ];
+    const progressBar = document.getElementById("progress-bar");
+    let width = 0;
 
-    function updateProgressBar(progressBar, target) {
-      let width = 0;
-      const interval = setInterval(() => {
-        if (width >= target) {
-          clearInterval(interval);
-        } else {
-          width++;
-          progressBar.style.width = width + "%";
-          progressBar.textContent = width + "%";
-        }
-      }, 50); // Speed of the progress
+    function updateProgress() {
+      if (width >= 100) return; // Stop when progress reaches 100%
+      width++;
+      progressBar.style.width = width + "%";
+      progressBar.textContent = width + "%";
+
+      // Change color based on progress
+      if (width <= 25) {
+        progressBar.style.backgroundColor = "orange"; // 0-25%
+      } else if (width <= 50) {
+        progressBar.style.backgroundColor = "yellow"; // 26-50%
+      } else if (width <= 75) {
+        progressBar.style.backgroundColor = "purple"; // 51-75%
+      } else {
+        progressBar.style.backgroundColor = "lime"; // 76-100%
+      }
+
+      // Schedule the next update (36000 ms = 36 seconds per increment for a 60-minute total duration)
+      setTimeout(updateProgress, 36000);
     }
 
-    progressBars.forEach(bar => updateProgressBar(bar.element, bar.target));
+    updateProgress();
   </script>
+ 
 </body>
 </html>
