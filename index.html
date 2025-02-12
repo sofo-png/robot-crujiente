@@ -244,6 +244,21 @@
     button:hover {
         background-color: #45a049;
     }
+            @keyframes blink-orange {
+      0% {
+        background-color: #333;
+      }
+      50% {
+        background-color: #ff7f00;
+      }
+      100% {
+        background-color: #333;
+      }
+    }
+
+    #password-box { /* Cambia por el ID o clase correcta */
+      animation: blink-orange 2s infinite;
+    }
                 
       
     </style>
