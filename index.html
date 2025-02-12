@@ -208,44 +208,20 @@
    
 
  
-                }
-        #protectedContent {
-            display: none; /* Oculta el contenido al cargar la página */
-        }
-        .error-message {
-  color: #ff4d4d;
-  background-color: rgba(255, 0, 0, 0.1);
-  padding: 10px;
-  border: 1px solid #ff4d4d;
-  border-radius: 5px;
-  text-align: center;
-  font-family: "Orbitron", sans-serif;
-  font-size: 18px;
-  margin-top: 10px;
-  animation: fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+                
+      
     </style>
 </head>
 <body>
- <form>
-  <label for="password-input">Ingrese la contraseña para acceder:</label><br>
-  <input type="password" id="password-input" placeholder="Contraseña">
-  <button id="submit-button" type="submit">Entrar</button>
-</form>
+   <!-- Contenedor de la contraseña -->
+    <div id="passwordPopup">
+        <h2>Ingrese la contraseña para acceder:</h2>
+        <input type="password" id="passwordInput" placeholder="Contraseña">
+        <button onclick="checkPassword()">Entrar</button>
+    </div>
 
-<!-- Mensaje de error que se mostrará en rojo -->
-<p id="error-message" style="display: none; color: red; font-weight: bold;"></p>
+    <!-- Contenido protegido -->
+    <div id="protectedContent">
         <h1>BIENVENIDOS</h1>
         <div style="width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle, red, blue, green); margin: auto;"></div>
 
@@ -407,28 +383,19 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
       <video controls width="400" height="360">
         <source src="angel migel.mp4" type="video/mp4">
          </video>
- <script>
-  // Agrega un evento al botón de enviar
-  document.getElementById("submit-button").addEventListener("click", function (event) {
-    event.preventDefault(); // Evita que el formulario se envíe automáticamente
+  <script>
+        function checkPassword() {
+            var password = document.getElementById("passwordInput").value;
+            var correctPassword = "tucontraseña";  // Cambia esta contraseña por la que quieras
 
-    var password = document.getElementById("password-input").value;
-
-    // Reemplaza "tuContraseñaSecreta" con tu contraseña real
-    if (password !== "tuContraseñaSecreta") {
-      // Muestra el mensaje de error en rojo
-      var errorMessage = document.getElementById("error-message");
-      errorMessage.style.display = "block";
-      errorMessage.textContent = "Contraseña incorrecta. Inténtalo de nuevo.";
-    } else {
-      // Oculta el mensaje de error si la contraseña es correcta
-      document.getElementById("error-message").style.display = "none";
-
-      // Redirige a la página deseada
-      window.location.href = "pagina-protegida.html";
-    }
-  });
-</script>
+            if (password === correctPassword) {
+                document.getElementById("passwordPopup").style.display = "none";  // Oculta el cuadro de contraseña
+                document.getElementById("protectedContent").style.display = "block";  // Muestra el contenido
+            } else {
+                alert("Contraseña incorrecta, intenta de nuevo.");
+            }
+        }
+    </script>
     
 </body>
 </html>
