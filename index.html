@@ -206,10 +206,64 @@
       66% { background: rgb(0, 0, 255); }
       100% { background: rgb(255, 0, 0); }
     }
-   
+    /* Estilos básicos para centrar el popup */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #passwordPopup {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    input {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
     </style>
 </head>
 <body>
+    <!-- Contenedor de contraseña -->
+<div id="passwordPopup">
+  <h2>Ingrese la contraseña para acceder:</h2>
+  <input type="password" id="passwordInput" placeholder="Contraseña">
+  <button onclick="checkPassword()">Entrar</button>
+</div>
+
+<!-- Contenido protegido -->
+<div id="protectedContent" style="display: none;">
+  <h1>Bienvenido</h1>
+  <p>Este es el contenido protegido.</p>
+</div>
+
     
     <div class="header">
         <div class="logo"></div>
@@ -368,6 +422,20 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
       <video controls width="400" height="360">
         <source src="angel migel.mp4" type="video/mp4">
          </video>
+    <script>
+  function checkPassword() {
+    var password = document.getElementById("passwordInput").value;
+    var correctPassword = "tucontraseña";
+
+    if (password === correctPassword) {
+      // Muestra el contenido protegido
+      document.getElementById("passwordPopup").style.display = "none";
+      document.getElementById("protectedContent").style.display = "block";
+    } else {
+      alert("Contraseña incorrecta, intenta de nuevo.");
+    }
+  }
+</script>
     
 </body>
 </html>
