@@ -207,52 +207,25 @@
       100% { background: rgb(255, 0, 0); }
    
 
-    #passwordPopup {
-      display: flex;
-      flex-direction: column;
-      background-color: white;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    input {
-      margin: 10px 0;
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
+ 
+                }
+        #protectedContent {
+            display: none; /* Oculta el contenido al cargar la página */
+        }
     </style>
 </head>
 <body>
-    <!-- Contenedor de contraseña -->
-<div id="passwordPopup">
-  <h2>Ingrese la contraseña para acceder:</h2>
-  <input type="password" id="passwordInput" placeholder="Contraseña">
-  <button onclick="checkPassword()">Entrar</button>
-</div>
+     <!-- Contenedor de la contraseña -->
+    <div id="passwordPopup">
+        <h2>Ingrese la contraseña para acceder:</h2>
+        <input type="password" id="passwordInput" placeholder="Contraseña">
+        <button onclick="checkPassword()">Entrar</button>
+    </div>
 
-<!-- Contenido protegido -->
-<div id="protectedContent" style="display: none;">
-  <h1>Bienvenido</h1>
-  <p>Este es el contenido protegido.</p>
-</div>
+    <!-- Contenido protegido -->
+    <div id="protectedContent">
+        <h1>BIENVENIDOS</h1>
+        <div style="width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle, red, blue, green); margin: auto;"></div>
 
     
     <div class="header">
@@ -412,20 +385,19 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
       <video controls width="400" height="360">
         <source src="angel migel.mp4" type="video/mp4">
          </video>
-    <script>
-  function checkPassword() {
-    var password = document.getElementById("passwordInput").value;
-    var correctPassword = "12000";
+      <script>
+        function checkPassword() {
+            var password = document.getElementById("passwordInput").value;
+            var correctPassword = "tucontraseña";  // Cambia esta contraseña por la que quieras
 
-    if (password === correctPassword) {
-      // Muestra el contenido protegido
-      document.getElementById("passwordPopup").style.display = "none";
-      document.getElementById("protectedContent").style.display = "block";
-    } else {
-      alert("Contraseña incorrecta, intenta de nuevo.");
-    }
-  }
-</script>
+            if (password === correctPassword) {
+                document.getElementById("passwordPopup").style.display = "none";  // Oculta el cuadro de contraseña
+                document.getElementById("protectedContent").style.display = "block";  // Muestra el contenido
+            } else {
+                alert("Contraseña incorrecta, intenta de nuevo.");
+            }
+        }
+    </script>
     
 </body>
 </html>
