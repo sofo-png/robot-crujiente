@@ -206,14 +206,17 @@
       66% { background: rgb(0, 0, 255); }
       100% { background: rgb(255, 0, 0); }
    
-
+ }
+        #protectedContent {
+            display: none; /* Oculta el contenido al cargar la página */
+        }
  
                 
       
     </style>
 </head>
 <body>
-   <!-- Contenedor de la contraseña -->
+     <!-- Contenedor de la contraseña -->
     <div id="passwordPopup">
         <h2>Ingrese la contraseña para acceder:</h2>
         <input type="password" id="passwordInput" placeholder="Contraseña">
@@ -383,10 +386,10 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
       <video controls width="400" height="360">
         <source src="angel migel.mp4" type="video/mp4">
          </video>
-  <script>
+   <script>
         function checkPassword() {
             var password = document.getElementById("passwordInput").value;
-            var correctPassword = "tucontraseña";  // Cambia esta contraseña por la que quieras
+            var correctPassword = "t800";  // Cambia esta contraseña por la que quieras
 
             if (password === correctPassword) {
                 document.getElementById("passwordPopup").style.display = "none";  // Oculta el cuadro de contraseña
