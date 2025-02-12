@@ -210,7 +210,40 @@
         #protectedContent {
             display: none; /* Oculta el contenido al cargar la página */
         }
- 
+     #passwordPopup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #333;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        text-align: center;
+    }
+
+    #passwordInput {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
                 
       
     </style>
@@ -387,15 +420,17 @@ Sumérgete en una experiencia única llena de mensajes impactantes, visuales sor
         <source src="angel migel.mp4" type="video/mp4">
          </video>
  
-    <script>
-        function checkPassword() {
-    var contraseña = document.getElementById("passwordInput").value;
-    var contraseña correcta = "sofonias"; // Cambia esta contraseña por la que prefieres 
-    if (password === correctPassword) { 
-        document.getElementById("passwordPopup").style.display = "none";
-        document.getElementById("protectedContent").style.display = "bloque"; 
-    } else { alert("Contraseña incorrecta. Inténtalo de nuevo."); } }
-    </script>
-    
+  <script>
+    function checkPassword() {
+        var password = document.getElementById("passwordInput").value;
+        var correctPassword = "12345"; // Cambia esta contraseña por la que prefieras
+        if (password === correctPassword) {
+            document.getElementById("passwordPopup").style.display = "none";
+            document.getElementById("protectedContent").style.display = "block";
+        } else {
+            alert("Contraseña incorrecta. Inténtalo de nuevo.");
+        }
+    }
+</script>
 </body>
 </html>
